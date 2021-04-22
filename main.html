@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Budget App</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="title">
+      <h1>Controlador de Gastos</h1>
+      <img src="./assets/images/budget.svg" alt="">
+    </div>
+   
+    <div class="show_balance">
+  
+      <div class="final_value">
+        <h3><img src="./assets/images/renda.svg" alt=""> RENDA</h3>
+        <h4 class="income">R$ 1000</h4>
+      </div>
+      <div class="final_value">
+        <h3 ><img src="./assets/images/despesa.svg" alt=""> DESPESA</h3>
+        <h4 class="expense">R$ 500</h4>
+      </div>
+    </div>
+
+    <div class="set_data">
+
+      <div class="set_task">
+        <h3>&#128515 NOVA RENDA</h3>
+        <div class="task_detailed">
+          <label for="">Descrição:</label>
+          <input type="text" id="income_description">
+        </div>
+
+        <div class="task_detailed">
+          <label for="">Valor:</label>
+          <input type="text" id="income_value">
+        </div>
+        <button class="add_income">Adicionar Renda</button>
+      
+      </div>
+      <div class="set_task">
+        <h3>&#128530 NOVA DESPESA</h3>
+        <div class="task_detailed">
+          <label for="">Descrição:</label>
+          <input type="text" id="expense_description">
+        </div>
+
+        <div class="task_detailed">
+          <label for="">Valor:</label>
+          <input type="text" id="expense_value">
+        </div>
+
+        <button class="add_expense">Adicionar Despesa</button>
+      </div>
+
+    </div>
+    <div class="tasks">
+      <h3>Histórico:</h3>
+
+      <div class="new-task income">
+        <label id="description">Salário</label>
+        <label id="value">+ R$1000</label>
+      </div>
+
+      <div class="new-task expense">
+        <label id="description">Manutenção Notebook</label>
+        <label id="value">- R$500</label>
+      </div>
+      
+    </div>
+   
+    </div>
+  </div>
+</body>
+</html>
