@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
 
   <div class="container">
@@ -17,16 +19,16 @@
       <h1>Controlador de Gastos</h1>
       <img src="./assets/images/budget.svg" alt="">
     </div>
-   
+
     <div class="show_balance">
-  
+
       <div class="final_value">
         <h3><img src="./assets/images/renda.svg" alt=""> RENDA</h3>
-        <h4 class="income">R$ 1000</h4>
+        <h4 class="income" id="add_txt_receita">R$ 1000</h4>
       </div>
       <div class="final_value">
-        <h3 ><img src="./assets/images/despesa.svg" alt=""> DESPESA</h3>
-        <h4 class="expense">R$ 500</h4>
+        <h3><img src="./assets/images/despesa.svg" alt=""> DESPESA</h3>
+        <h4 class="expense" id="add_txt_despesa">R$ 500</h4>
       </div>
     </div>
 
@@ -43,8 +45,8 @@
           <label for="">Valor:</label>
           <input type="text" id="income_value">
         </div>
-        <button class="add_income">Adicionar Renda</button>
-      
+        <button class="add_income" onclick="somar()">Adicionar Renda</button>
+
       </div>
       <div class="set_task">
         <h3>&#128530 NOVA DESPESA</h3>
@@ -58,26 +60,94 @@
           <input type="text" id="expense_value">
         </div>
 
-        <button class="add_expense">Adicionar Despesa</button>
+        <button class="add_expense" onclick="subtrair()">Adicionar Despesa</button>
       </div>
 
     </div>
-    <div class="tasks">
+    <div class="tasks" id="tasks">
       <h3>Histórico:</h3>
 
-      <div class="new-task income">
-        <label id="description">Salário</label>
-        <label id="value">+ R$1000</label>
-      </div>
+      <!--<div class="new-task" id="expense">
+        <label>Manutenção Notebook</label>
+        <label>- R$500</label>-->
 
-      <div class="new-task expense">
-        <label id="description">Manutenção Notebook</label>
-        <label id="value">- R$500</label>
-      </div>
-      
-    </div>
-   
     </div>
   </div>
+  </div>
+  </div>
+
+
+  <script>
+
+    var add_txt_receita = window.document.getElementById("add_txt_receita")
+    var income_value = window.document.getElementById("income_value")
+    var income_description = window.document.getElementById("income_description")
+    var add_txt_despesa = window.document.getElementById("add_txt_despesa")
+    var expense_description = window.document.getElementById("expense_description")
+    var expense_value = window.document.getElementById("expense_value")
+    var receita = Number();
+    var despesa = Number();
+
+
+    function somar() {
+
+      var descri_receita = income_description.value
+      var valor_receita = Number(income_value.value)
+      receita += valor_receita
+      add_txt_receita.innerHTML = `R$ ${receita}`
+
+      //Parte para inserir o historico
+
+      let div_tasks = window.document.getElementById("tasks");
+      let div_receita = document.createElement('div');
+      let label_receita_v = document.createElement('label');
+      let label_receita_d = document.createElement('label');
+
+      div_receita.className = 'new-task'
+      div_receita.id = 'income'
+
+      label_receita_v.innerText = `+ R$${valor_receita}`
+      label_receita_d.innerText = descri_receita
+
+      div_tasks.appendChild(div_receita)
+      div_receita.appendChild(label_receita_d)
+      var div2 = div_receita.cloneNode(true);
+      div_receita.appendChild(label_receita_v)
+
+    }
+
+    function subtrair() {
+
+      var descri_despesa = expense_description.value
+      var valor_despesa = Number(expense_value.value)
+      despesa += valor_despesa
+      add_txt_despesa.innerHTML = `R$ ${despesa}`
+
+      //Parte para inserir o historico
+
+      let div_tasks = window.document.getElementById("tasks");
+      let div_despesa = document.createElement('div');
+      let label_despesa_v = document.createElement('label');
+      let label_despesa_d = document.createElement('label');
+
+      div_despesa.className = 'new-task'
+      div_despesa.id = 'expense'
+
+      label_despesa_v.innerText = `-R$${valor_despesa}`
+      label_despesa_d.innerText = descri_despesa
+
+      div_tasks.appendChild(div_despesa)
+      div_despesa.appendChild(label_despesa_d)
+      var div2 = div_despesa.cloneNode(true);
+      div_despesa.appendChild(label_despesa_v)
+
+
+    }
+
+
+  </script>
+
+
 </body>
+
 </html>

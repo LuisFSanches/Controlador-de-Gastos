@@ -87,11 +87,11 @@ input {
   width: 20px;
   margin-right: 5px;
 }
-.income {
+#income {
   color: #008000;
   font-weight: bold;
 }
-.expense {
+#expense {
   color: #ce2029;
   font-weight: bold;
 }
@@ -165,4 +165,14 @@ input {
   margin-bottom: 20px;
   font-size: 17px;
   margin-left: 20px;
+}
+
+#add_txt_despesa {
+  color: #ce2029;
+  font-weight: bold;
+}
+
+ #add_txt_receita{  
+   color: #008000;
+  font-weight: bold;
 }
